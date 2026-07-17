@@ -5,7 +5,7 @@ import { JuegoContext } from '../JuegoContext';
 import { Temporizador } from './Temporizador';
 
 function PantallaJuego() {
-    const { nombreJugador, puntos, setPuntos, clickGlobo, tempBalloons, explotarGlobo, eliminarPorTecho } = React.useContext(JuegoContext)
+    const { nombreJugador, puntos, tempBalloons, explotarGlobo, eliminarPorTecho } = React.useContext(JuegoContext)
     const [play, setPlay] = React.useState(false)
 
     return (

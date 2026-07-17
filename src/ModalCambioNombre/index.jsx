@@ -4,7 +4,7 @@ import { JuegoContext } from "../JuegoContext";
 
 function ModalCambioNombre() {
 
-    const { nombreJugador, setNombreJugador, onChange, Jugar, Reiniciar } = React.useContext(JuegoContext)
+    const { nombreJugador, onChange, Jugar, Reiniciar } = React.useContext(JuegoContext)
 
 
     return (

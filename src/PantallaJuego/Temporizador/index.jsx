@@ -4,7 +4,7 @@ import { JuegoContext } from "../../JuegoContext";
 
 function Temporizador({ play }) {
     const [tiempo, setTiempo] = React.useState(30)
-    const { cambioPantalla, setCambioPantalla, Reiniciar, setTempBallons, tempBallons, generadorBallons } = React.useContext(JuegoContext)
+    const { setCambioPantalla, setTempBallons, generadorBallons } = React.useContext(JuegoContext)
 
     useEffect(() => {
         if(play){

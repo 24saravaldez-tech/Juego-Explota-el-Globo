@@ -11,12 +11,17 @@ function JuegoProvider({ children }) {
     const [negros, setNegros] = React.useState(0)
     const [total, setTotal] = React.useState(0)
     const [totalPositivos, setTotalPositivos] = React.useState(0)
+    const [totalNulos, setTotalNulos] = React.useState(0)
 
     const coloresValidos = [
         { color: 'red', points: 1, },
         { color: 'blue', points: 5, },
         { color: 'green', points: 2, },
-        { color: 'black', points: -3, }
+        { color: 'black', points: -3, },
+        // { color: 'yellow', points: 0, },
+        // { color: 'white', points: 0, },
+        // { color: 'pink', points: 0, },
+        // { color: 'orange', points: 0, }
     ]
 
     const contadorId = React.useRef(0)
@@ -30,7 +35,11 @@ function JuegoProvider({ children }) {
         { id: nuevoId(), color: 'red', x: Math.random() * (90 - 5) + 5, y: Math.random() * (80 - 5) + 5, points: 1, velocidad: Math.random() * (8 - 4) + 4 },
         { id: nuevoId(), color: 'blue', x: Math.random() * (90 - 5) + 5, y: Math.random() * (80 - 5) + 5, points: 5, velocidad: Math.random() * (8 - 4) + 4 },
         { id: nuevoId(), color: 'green', x: Math.random() * (90 - 5) + 5, y: Math.random() * (80 - 5) + 5, points: 2, velocidad: Math.random() * (8 - 4) + 4 },
-        { id: nuevoId(), color: 'black', x: Math.random() * (90 - 5) + 5, y: Math.random() * (80 - 5) + 5, points: -3, velocidad: Math.random() * (8 - 4) + 4 }
+        { id: nuevoId(), color: 'black', x: Math.random() * (90 - 5) + 5, y: Math.random() * (80 - 5) + 5, points: -3, velocidad: Math.random() * (8 - 4) + 4 },
+        // { id: nuevoId(), color: 'yellow', x: Math.random() * (90 - 5) + 5, y: Math.random() * (80 - 5) + 5, points: 0, velocidad: Math.random() * (8 - 4) + 4 },
+        // { id: nuevoId(), color: 'white', x: Math.random() * (90 - 5) + 5, y: Math.random() * (80 - 5) + 5, points: 0, velocidad: Math.random() * (8 - 4) + 4 },
+        // { id: nuevoId(), color: 'pink', x: Math.random() * (90 - 5) + 5, y: Math.random() * (80 - 5) + 5, points: 0, velocidad: Math.random() * (8 - 4) + 4 },
+        // { id: nuevoId(), color: 'orange', x: Math.random() * (90 - 5) + 5, y: Math.random() * (80 - 5) + 5, points: 0, velocidad: Math.random() * (8 - 4) + 4 },
     ]
 
     const [tempBalloons, setTempBallons] = React.useState(globosPorDefecto);
@@ -38,6 +47,7 @@ function JuegoProvider({ children }) {
 
     const generadorBallons = () => {
         let index = Math.floor(Math.random() * (4 - 0) + 0);
+        console.log('yo soy index', index)
         let colorEscogido = coloresValidos[index];
 
         let globito = {
@@ -74,6 +84,10 @@ function JuegoProvider({ children }) {
             setNegros((cantidad) => cantidad + 1)
             setTotal((cantidad) => cantidad + 1)
         }
+        if (parseInt(points) == 0) {
+            setTotal((cantidad) => cantidad + 1)
+            setTotalNulos((cantidad) => cantidad + 1)
+        }
         setTempBallons(globosActuales => globosActuales.filter(globo => globo.id !== id))
     }
 
@@ -96,7 +110,6 @@ function JuegoProvider({ children }) {
             alert('Por Favor, ingresa un nombre en el campo. No se permiten espacios vacios!')
             return
         } else {
-            console.log(nombreJugador)
             setPuntos(0)
             setTotal(0)
             setNegros(0)

@@ -3,7 +3,7 @@ import React from 'react';
 import './ComponenteGlobo.css';
 import { JuegoContext } from '../../JuegoContext';
 
-function Globo({ id, color, x, y, velocidad, onExplotar, onLlegoAlTecho, points, onClick }) {
+function Globo({ id, color, x, y, velocidad, onExplotar, onLlegoAlTecho, points }) {
 
   const estiloDinamico = {
     left: `${x}%`,

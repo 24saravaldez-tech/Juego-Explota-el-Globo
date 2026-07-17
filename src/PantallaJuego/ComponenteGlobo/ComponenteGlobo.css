@@ -6,6 +6,7 @@
 
 }
 
+
 .balloon-body {
   width: 60px;
   height: 75px;
@@ -28,6 +29,22 @@
 
 .black .balloon-body {
   background-color: var(--balloon-black);
+}
+
+.yellow .balloon-body {
+  border-bottom: 8px solid var(--balloon-yellow);
+}
+
+.orange .balloon-body {
+  border-bottom: 8px solid var(--balloon-orange);
+}
+
+.pink .balloon-body {
+  border-bottom: 8px solid var(--balloon-pink);
+}
+
+.white .balloon-body {
+  border-bottom: 8px solid var(--balloon-white);
 }
 
 .balloon-tie {
@@ -54,6 +71,21 @@
   border-bottom: 8px solid var(--balloon-black);
 }
 
+.yellow .balloon-tie {
+  border-bottom: 8px solid var(--balloon-yellow);
+}
+
+.orange .balloon-tie {
+  border-bottom: 8px solid var(--balloon-orange);
+}
+
+.pink .balloon-tie {
+  border-bottom: 8px solid var(--balloon-pink);
+}
+
+.white .balloon-tie {
+  border-bottom: 8px solid var(--balloon-white);
+}
 
 .balloon-string {
   width: 2px;

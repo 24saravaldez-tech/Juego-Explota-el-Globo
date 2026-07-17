@@ -1,6 +1,6 @@
 import React from "react"
 import { FormJugador } from "./FormJugador"
-import { JuegoContext } from "../JuegoContext"
+
 
 
 function PantallaRegistro() {

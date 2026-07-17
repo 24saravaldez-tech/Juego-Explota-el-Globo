@@ -2,7 +2,7 @@ import React from "react";
 import { JuegoContext } from "../../JuegoContext";
 
 function FormJugador() {
-    const { nombreJugador, onChange, Jugar, Reiniciar } = React.useContext(JuegoContext)
+    const { nombreJugador, onChange, Jugar} = React.useContext(JuegoContext)
 
     return (
         <div className="start-form">

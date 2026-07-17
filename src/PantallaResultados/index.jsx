@@ -4,7 +4,7 @@ import { JuegoContext } from '../JuegoContext';
 
 
 function PantallaResultados() {
-  const { nombreJugador, Jugar, puntos, Reiniciar, ModalCambioNombre, negros, total, totalPositivos } = React.useContext(JuegoContext)
+  const { nombreJugador, puntos, ModalCambioNombre, negros, total, totalPositivos } = React.useContext(JuegoContext)
 
 
   let mensaje = ''

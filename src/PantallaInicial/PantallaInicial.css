@@ -10,6 +10,10 @@
   --balloon-green: #4ead73;
   --balloon-blue: #4d96ff;
   --balloon-black: #2d3748;
+  --balloon-yellow: #fff428;
+  --balloon-orange: #f77b08;
+  --balloon-pink: #c244a5;
+  --balloon-white: #ffffff;
 
   --primary-color: #4facfe;
   --primary-hover: #00f2fe;
@@ -185,6 +189,22 @@ body {
 
 .balloon-dot.black {
   background-color: var(--balloon-black);
+}
+
+.balloon-dot.yellow {
+  background-color: var(--balloon-yellow);
+}
+
+.balloon-dot.pink {
+  background-color: var(--balloon-pink);
+}
+
+.balloon-dot.white {
+  background-color: var(--balloon-white);
+}
+
+.balloon-dot.orange {
+  background-color: var(--balloon-orange);
 }
 
 @keyframes fadeIn {
