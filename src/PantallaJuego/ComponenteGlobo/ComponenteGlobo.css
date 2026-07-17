@@ -1,19 +1,8 @@
 .balloon-wrapper {
-  /* position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  animation: floatUp 4s ease-in-out infinite alternate;
-  user-select: none; */
-
   position: absolute;
-  /* La animación dura un tiempo determinado (por ejemplo, 6 segundos) 
-     y se mueve de forma lineal (constante) hacia arriba */
   animation: floatUp 6s linear forwards;
-  
-  /* Evita que el usuario pueda seleccionar el texto o arrastrar el elemento */
   user-select: none;
+  cursor: pointer;
 
 }
 
@@ -25,7 +14,6 @@
   box-shadow: inset -5px -8px 0 rgba(0, 0, 0, 0.12);
 }
 
-/* Variaciones de colores de globos mediante clases */
 .red .balloon-body {
   background-color: var(--balloon-red);
 }
@@ -42,7 +30,6 @@
   background-color: var(--balloon-black);
 }
 
-/* Detalle del nudo del globo */
 .balloon-tie {
   width: 0;
   height: 0;
@@ -67,14 +54,14 @@
   border-bottom: 8px solid var(--balloon-black);
 }
 
-/* El hilo colgante */
+
 .balloon-string {
   width: 2px;
   height: 35px;
   background-color: rgba(0, 0, 0, 0.15);
 }
 
-/* Efecto de brillo/reflejo 3D */
+
 .balloon-reflect {
   position: absolute;
   width: 10px;
@@ -86,15 +73,13 @@
   transform: rotate(20deg);
 }
 
-/* Animación sutil de balanceo para que parezcan vivos */
+
 @keyframes floatUp {
   0% {
-    /* Inicia completamente abajo, fuera del lienzo */
     transform: translateY(95vh);
   }
 
   100% {
-    /* Termina arriba del todo (en el techo) */
     transform: translateY(-110%);
   }
 

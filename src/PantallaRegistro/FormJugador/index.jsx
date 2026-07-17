@@ -16,7 +16,7 @@ function FormJugador() {
                 value={nombreJugador}
                 onChange={onChange}
             />
-            <button className="btn-start" type="button" onClick={Jugar}>
+            <button className="btn-start" type="button" onClick={() => Jugar(nombreJugador)}>
                 ¡Comenzar Partida! 🚀
             </button>
         </div>

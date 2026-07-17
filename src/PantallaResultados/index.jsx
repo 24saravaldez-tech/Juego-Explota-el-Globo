@@ -5,13 +5,14 @@ import { JuegoContext } from '../JuegoContext';
 
 function PantallaResultados() {
   const { nombreJugador, Jugar, puntos, Reiniciar, ModalCambioNombre, negros, total, totalPositivos } = React.useContext(JuegoContext)
- 
+
+
   let mensaje = ''
   if (puntos < 0) {
     mensaje = '¡Cuidado con los globos negros!'
-  } else if (puntos >= 0 && puntos < 10) {
+  } else if (puntos >= 0 && puntos <= 10) {
     mensaje = '¡Buen intento!'
-  } else if (puntos >= 10 && puntos < 24) {
+  } else if (puntos > 10 && puntos <= 25) {
     mensaje = '¡Muy bien!'
   } else if (puntos > 25) {
     mensaje = '¡Eres un maestro explotando globos!'

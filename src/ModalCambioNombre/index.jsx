@@ -35,7 +35,7 @@ function ModalCambioNombre() {
 
                 <div className="modal-footer">
                     <button className="btn btn-secondary" onClick={Reiniciar}>Cancelar</button>
-                    <button className="btn btn-primary" onClick={Jugar}>Guardar Cambios</button>
+                    <button className="btn btn-primary" onClick={() => Jugar(nombreJugador)}>Guardar Cambios</button>
                 </div>
             </div>
         </div>

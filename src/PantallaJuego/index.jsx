@@ -8,9 +8,6 @@ function PantallaJuego() {
     const { nombreJugador, puntos, setPuntos, clickGlobo, tempBalloons, explotarGlobo, eliminarPorTecho } = React.useContext(JuegoContext)
     const [play, setPlay] = React.useState(false)
 
-    console.log(tempBalloons)
-
-
     return (
         <div className="game-layout">
             <header className="game-hud">
