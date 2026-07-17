@@ -1,32 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
 
 :root {
   --bg-app: linear-gradient(to top, #e0f2fe, #f0f9ff);
-  --bg-card: #ffffff;
-  --text-main: #2d3748;
-  --text-muted: #718096;
+  --bg-card: #fffaf3;
+  --text-main: #4a2c35;
+  --text-muted: #8a5b63;
 
   --balloon-red: #ff6b6b;
   --balloon-green: #4ead73;
   --balloon-blue: #4d96ff;
   --balloon-black: #2d3748;
-  --balloon-yellow: #fff428;
-  --balloon-orange: #f77b08;
-  --balloon-pink: #c244a5;
-  --balloon-white: #ffffff;
 
-  --primary-color: #4facfe;
-  --primary-hover: #00f2fe;
+  /* Paleta extraída de la ilustración floral */
+  --coral: #e8735f;
+  --coral-hover: #d85a48;
+  --rose: #f4a6a0;
+  --peach: #f7c98f;
+  --cream: #fdf3e2;
+  --plum: #6b3f4e;
 
-
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--bg-app);
-
-
+  --primary-color: var(--coral);
+  --primary-hover: var(--coral-hover);
 }
 
 * {
@@ -38,42 +32,128 @@
 body {
   font-family: 'Quicksand', sans-serif;
   color: var(--text-main);
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Wrapper de fondo a pantalla completa (evita que los estilos de body
+   de cada pantalla se pisen entre sí). */
+.pantalla-fondo {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
 
-
-  width: 100vw;
-  height: 100vh;
-
-  background-image: url(../../public/Gemini_Generated_Image_khefnqkhefnqkhef.png);
-
+.pantalla-fondo--registro {
+  background-image: url(../../public/Gemini_Generated_Image_1aj5ty1aj5ty1aj5.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
+.cielo-transicion {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url(../../public/Gemini_Generated_Image_bd9dm0bd9dm0bd9d.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 100%;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.8s ease, transform 0.8s ease, background-position 0.8s ease;
+  pointer-events: none;
+}
+
+.cielo-transicion--activo {
+  opacity: 1;
+  transform: scale(1);
+  background-position: center 55%;
+}
 
 .start-card {
-  background: var(--bg-card);
-  border-radius: 24px;
+  position: relative;
+  z-index: 2;
+  background: rgba(253, 243, 226, 0.88);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 28px;
   padding: 40px;
   max-width: 900px;
   width: 90%;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-  animation: fadeIn 0.5s ease;
+  box-shadow: 0 20px 45px rgba(107, 63, 78, 0.25);
+  animation: fadeIn 0.6s ease;
+}
+
+.start-card--saliendo {
+  animation: desvanecerTarjeta 0.8s ease forwards;
+  pointer-events: none;
+}
+
+.start-card--saliendo .game-title {
+  animation: piezaArriba 0.75s ease forwards;
+}
+
+.start-card--saliendo .game-subtitle {
+  animation: piezaArriba 0.75s ease 0.05s forwards;
+}
+
+.start-card--saliendo .start-form {
+  animation: piezaIzquierda 0.75s ease 0.05s forwards;
+}
+
+.start-card--saliendo .instructions-panel {
+  animation: piezaDerecha 0.75s ease 0.1s forwards;
+}
+
+@keyframes desvanecerTarjeta {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+}
+
+@keyframes piezaArriba {
+  to {
+    transform: translateY(-70px) rotate(-3deg);
+    opacity: 0;
+  }
+}
+
+@keyframes piezaIzquierda {
+  to {
+    transform: translateX(-90px) rotate(-8deg);
+    opacity: 0;
+  }
+}
+
+@keyframes piezaDerecha {
+  to {
+    transform: translateX(90px) rotate(8deg);
+    opacity: 0;
+  }
 }
 
 .game-title {
+  font-family: 'Fredoka', sans-serif;
   font-size: 2.8rem;
-  color: var(--primary-color);
+  font-weight: 600;
+  color: var(--coral);
   margin-bottom: 8px;
   text-align: center;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.5);
 }
 
 .game-subtitle {
@@ -99,49 +179,67 @@ body {
   font-weight: 600;
   margin-bottom: 12px;
   font-size: 1.1rem;
+  color: var(--plum);
 }
 
 .name-input {
+  background: #ffffff;
   padding: 14px 20px;
-  border-radius: 12px;
-  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  border: 2px solid #f0dcc4;
   font-family: inherit;
   font-size: 1rem;
+  color: var(--text-main);
   margin-bottom: 24px;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.name-input::placeholder {
+  color: #c9ada7;
 }
 
 .name-input:focus {
   outline: none;
-  border-color: var(--primary-color);
+  border-color: var(--coral);
+  box-shadow: 0 0 0 4px rgba(232, 115, 95, 0.15);
 }
 
 .btn-start {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--coral), #f0906f);
   color: white;
   border: none;
   padding: 16px;
-  border-radius: 12px;
-  font-family: inherit;
+  border-radius: 14px;
+  font-family: 'Fredoka', sans-serif;
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: 0.3px;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 10px 20px rgba(232, 115, 95, 0.35);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 }
 
 .btn-start:hover {
-  background: var(--primary-hover);
+  background: linear-gradient(135deg, var(--coral-hover), var(--coral));
   transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(232, 115, 95, 0.4);
+}
+
+.btn-start:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(232, 115, 95, 0.35);
 }
 
 .instructions-panel {
-  background: #f7fafc;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 18px;
   padding: 24px;
-  border: 1px dashed #e2e8f0;
+  border: 1px dashed #f0c7a8;
 }
 
 .instructions-panel h3 {
+  font-family: 'Fredoka', sans-serif;
+  color: var(--plum);
   margin-bottom: 12px;
   font-size: 1.3rem;
 }
@@ -164,8 +262,8 @@ body {
   align-items: center;
   background: white;
   padding: 12px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(107, 63, 78, 0.08);
 }
 
 .balloon-dot {
@@ -189,22 +287,6 @@ body {
 
 .balloon-dot.black {
   background-color: var(--balloon-black);
-}
-
-.balloon-dot.yellow {
-  background-color: var(--balloon-yellow);
-}
-
-.balloon-dot.pink {
-  background-color: var(--balloon-pink);
-}
-
-.balloon-dot.white {
-  background-color: var(--balloon-white);
-}
-
-.balloon-dot.orange {
-  background-color: var(--balloon-orange);
 }
 
 @keyframes fadeIn {

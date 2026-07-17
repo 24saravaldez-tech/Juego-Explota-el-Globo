@@ -5,10 +5,11 @@ import { JuegoContext } from '../JuegoContext';
 import { Temporizador } from './Temporizador';
 
 function PantallaJuego() {
-    const { nombreJugador, puntos, tempBalloons, explotarGlobo, eliminarPorTecho } = React.useContext(JuegoContext)
+    const { nombreJugador, puntos, setPuntos, clickGlobo, tempBalloons, explotarGlobo, eliminarPorTecho } = React.useContext(JuegoContext)
     const [play, setPlay] = React.useState(false)
 
     return (
+        <div className="pantalla-fondo pantalla-fondo--juego">
         <div className="game-layout">
             <header className="game-hud">
                 <div className="hud-block">
@@ -59,6 +60,7 @@ function PantallaJuego() {
             <footer>
                 <button className="btn-start" type="button" onClick={() => setPlay(true)}>Play</button>
             </footer>
+        </div>
         </div>
     );
 }

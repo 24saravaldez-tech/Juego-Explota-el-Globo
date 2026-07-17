@@ -47,7 +47,6 @@ function JuegoProvider({ children }) {
 
     const generadorBallons = () => {
         let index = Math.floor(Math.random() * (4 - 0) + 0);
-        console.log('yo soy index', index)
         let colorEscogido = coloresValidos[index];
 
         let globito = {
@@ -65,7 +64,6 @@ function JuegoProvider({ children }) {
 
 
     const explotarGlobo = (id, color, points) => {
-        console.log('click en el globo');
         setPuntos((valores) => valores + parseInt(points))
 
         if (parseInt(points) == 1) {
