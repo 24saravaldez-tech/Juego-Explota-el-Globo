@@ -1,27 +1,24 @@
 import React from 'react';
 import './PantallaJuego.css';
-import { PantallaInicial } from '../PantallaInicial';
+import { Globo } from './ComponenteGlobo';
+import { JuegoContext } from '../JuegoContext';
+import { Temporizador } from './Temporizador';
 
 function PantallaJuego() {
+    const { nombreJugador, puntos, setPuntos, clickGlobo, tempBalloons, explotarGlobo, eliminarPorTecho } = React.useContext(JuegoContext)
+    const [play, setPlay] = React.useState(false)
 
+    console.log(tempBalloons)
 
-    
-    const tempBalloons = [
-        { id: 1, color: 'red', x: 20, y: 30 },
-        { id: 2, color: 'blue', x: 70, y: 15 },
-        { id: 3, color: 'green', x: 45, y: 60 },
-        { id: 4, color: 'black', x: 80, y: 70 }
-    ];
 
     return (
         <div className="game-layout">
-            {/* HUD Superior (Barra de estado) */}
             <header className="game-hud">
                 <div className="hud-block">
                     <span className="hud-icon">👤</span>
                     <div className="hud-text">
                         <span className="hud-label">Jugador</span>
-                        <span className="hud-value">Oliver</span>
+                        <span className="hud-value">{nombreJugador}</span>
                     </div>
                 </div>
 
@@ -29,9 +26,8 @@ function PantallaJuego() {
                     <span className="hud-icon">⏱️</span>
                     <div className="hud-text">
                         <span className="hud-label">Tiempo Restante</span>
-                        <span className="hud-value">30s</span>
+                        <Temporizador play={play} />
                     </div>
-                    {/* Barra de progreso visual del tiempo */}
                     <div className="time-bar-container">
                         <div className="time-bar-fill" style={{ width: '80%' }}></div>
                     </div>
@@ -41,23 +37,31 @@ function PantallaJuego() {
                     <span className="hud-icon">🏆</span>
                     <div className="hud-text">
                         <span className="hud-label">Puntaje</span>
-                        <span className="hud-value">0</span>
+                        <span className="hud-value">{puntos}</span>
                     </div>
                 </div>
             </header>
-
-            {/* Canvas del Juego */}
-            <main className="game-canvas">
-                {/* Aquí renderizarás dinámicamente tu array de globos activos */}
-                {tempBalloons.map((balloon) => (
-                    <Balloon
-                        key={balloon.id}
-                        color={balloon.color}
-                        x={balloon.x}
-                        y={balloon.y}
+            {play ? <main className="game-canvas" onClick={(e) => e.stopPropagation()}>
+                {tempBalloons.map((globo) => (
+                    <Globo
+                        key={globo.id}
+                        id={globo.id}
+                        color={globo.color}
+                        x={globo.x}
+                        y={globo.y}
+                        points={globo.points}
+                        velocidad={globo.velocidad}
+                        onExplotar={explotarGlobo}
+                        onLlegoAlTecho={eliminarPorTecho}
                     />
                 ))}
             </main>
+                : <main className="game-canvas" onClick={(e) => e.stopPropagation()}/>}
+
+
+            <footer>
+                <button className="btn-start" type="button" onClick={() => setPlay(true)}>Play</button>
+            </footer>
         </div>
     );
 }

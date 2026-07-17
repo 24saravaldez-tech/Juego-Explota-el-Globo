@@ -1,14 +1,8 @@
 import React from "react";
-// import { useState } from "react";
-import { PantallaInicial } from "..";
 import { JuegoContext } from "../../JuegoContext";
 
 function FormJugador() {
-    const { cambioPantalla, setCambioPantalla } = React.useContext(JuegoContext)
-
-    const Play = () => {
-        setCambioPantalla('Jugar')
-    }
+    const { nombreJugador, onChange, Jugar, Reiniciar } = React.useContext(JuegoContext)
 
     return (
         <div className="start-form">
@@ -19,8 +13,10 @@ function FormJugador() {
                 className="name-input"
                 placeholder="Ej. Oliver"
                 autoComplete="off"
+                value={nombreJugador}
+                onChange={onChange}
             />
-            <button className="btn-start" type="button" onClick={() => Play()}>
+            <button className="btn-start" type="button" onClick={Jugar}>
                 ¡Comenzar Partida! 🚀
             </button>
         </div>

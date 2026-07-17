@@ -1,11 +1,20 @@
 .balloon-wrapper {
-  position: absolute;
+  /* position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
   animation: floatUp 4s ease-in-out infinite alternate;
+  user-select: none; */
+
+  position: absolute;
+  /* La animación dura un tiempo determinado (por ejemplo, 6 segundos) 
+     y se mueve de forma lineal (constante) hacia arriba */
+  animation: floatUp 6s linear forwards;
+  
+  /* Evita que el usuario pueda seleccionar el texto o arrastrar el elemento */
   user-select: none;
+
 }
 
 .balloon-body {
@@ -13,14 +22,25 @@
   height: 75px;
   border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
   position: relative;
-  box-shadow: inset -5px -8px 0 rgba(0,0,0,0.12);
+  box-shadow: inset -5px -8px 0 rgba(0, 0, 0, 0.12);
 }
 
 /* Variaciones de colores de globos mediante clases */
-.red .balloon-body { background-color: var(--balloon-red); }
-.green .balloon-body { background-color: var(--balloon-green); }
-.blue .balloon-body { background-color: var(--balloon-blue); }
-.black .balloon-body { background-color: var(--balloon-black); }
+.red .balloon-body {
+  background-color: var(--balloon-red);
+}
+
+.green .balloon-body {
+  background-color: var(--balloon-green);
+}
+
+.blue .balloon-body {
+  background-color: var(--balloon-blue);
+}
+
+.black .balloon-body {
+  background-color: var(--balloon-black);
+}
 
 /* Detalle del nudo del globo */
 .balloon-tie {
@@ -31,10 +51,21 @@
   margin-top: -1px;
 }
 
-.red .balloon-tie { border-bottom: 8px solid var(--balloon-red); }
-.green .balloon-tie { border-bottom: 8px solid var(--balloon-green); }
-.blue .balloon-tie { border-bottom: 8px solid var(--balloon-blue); }
-.black .balloon-tie { border-bottom: 8px solid var(--balloon-black); }
+.red .balloon-tie {
+  border-bottom: 8px solid var(--balloon-red);
+}
+
+.green .balloon-tie {
+  border-bottom: 8px solid var(--balloon-green);
+}
+
+.blue .balloon-tie {
+  border-bottom: 8px solid var(--balloon-blue);
+}
+
+.black .balloon-tie {
+  border-bottom: 8px solid var(--balloon-black);
+}
 
 /* El hilo colgante */
 .balloon-string {
@@ -57,6 +88,14 @@
 
 /* Animación sutil de balanceo para que parezcan vivos */
 @keyframes floatUp {
-  0% { transform: translateY(0) rotate(-3deg); }
-  100% { transform: translateY(-15px) rotate(3deg); }
+  0% {
+    /* Inicia completamente abajo, fuera del lienzo */
+    transform: translateY(95vh);
+  }
+
+  100% {
+    /* Termina arriba del todo (en el techo) */
+    transform: translateY(-110%);
+  }
+
 }

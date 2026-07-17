@@ -1,20 +1,25 @@
+
 import React from 'react';
 import './ComponenteGlobo.css';
+import { JuegoContext } from '../../JuegoContext';
 
-export default function Balloon({ color, x, y }) {
-  // Recibe la posición (x, y) en porcentaje y el color como props [cite: 112]
-  const inlineStyle = {
+function Globo({ id, color, x, y, velocidad, onExplotar, onLlegoAlTecho, points, onClick }) {
+
+  const estiloDinamico = {
     left: `${x}%`,
-    top: `${y}%`,
+    right: `${y}%`,
+    animationDuration: `${velocidad}s`
   };
 
   return (
-    <div 
-      className={`balloon-wrapper ${color}`} 
-      style={inlineStyle}
+    <div
+      className={`balloon-wrapper ${color}`}
+      style={estiloDinamico}
+      onClick={() => onExplotar(id, color, points)}
+      onAnimationEnd={() => onLlegoAlTecho(id)}
+      id={`${points}`}
     >
       <div className="balloon-body">
-        {/* Un sutil reflejo de luz para dar volumen al globo */}
         <div className="balloon-reflect"></div>
       </div>
       <div className="balloon-tie"></div>
@@ -22,3 +27,7 @@ export default function Balloon({ color, x, y }) {
     </div>
   );
 }
+
+
+export { Globo }
+
