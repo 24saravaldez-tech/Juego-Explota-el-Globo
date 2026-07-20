@@ -15,11 +15,10 @@ function Globo({ id, color, x, y, velocidad, onExplotar, onLlegoAlTecho, points 
     <div
       className={`balloon-wrapper ${color}`}
       style={estiloDinamico}
-      onClick={() => onExplotar(id, color, points)}
       onAnimationEnd={() => onLlegoAlTecho(id)}
       id={`${points}`}
     >
-      <div className="balloon-body">
+      <div className="balloon-body" onClick={() => onExplotar(id, color, points)}>
         <div className="balloon-reflect"></div>
       </div>
       <div className="balloon-tie"></div>

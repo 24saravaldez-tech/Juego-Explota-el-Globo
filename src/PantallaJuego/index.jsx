@@ -6,7 +6,6 @@ import { Temporizador } from './Temporizador';
 
 function PantallaJuego() {
     const { nombreJugador, puntos, setPuntos, clickGlobo, tempBalloons, explotarGlobo, eliminarPorTecho } = React.useContext(JuegoContext)
-    const [play, setPlay] = React.useState(false)
 
     return (
         <div className="pantalla-fondo pantalla-fondo--juego">
@@ -24,7 +23,7 @@ function PantallaJuego() {
                     <span className="hud-icon">⏱️</span>
                     <div className="hud-text">
                         <span className="hud-label">Tiempo Restante</span>
-                        <Temporizador play={play} />
+                        <Temporizador />
                     </div>
                     <div className="time-bar-container">
                         <div className="time-bar-fill" style={{ width: '80%' }}></div>
@@ -39,7 +38,7 @@ function PantallaJuego() {
                     </div>
                 </div>
             </header>
-            {play ? <main className="game-canvas" onClick={(e) => e.stopPropagation()}>
+            <main className="game-canvas" onClick={(e) => e.stopPropagation()}>
                 {tempBalloons.map((globo) => (
                     <Globo
                         key={globo.id}
@@ -54,12 +53,7 @@ function PantallaJuego() {
                     />
                 ))}
             </main>
-                : <main className="game-canvas" onClick={(e) => e.stopPropagation()}/>}
-
-
-            <footer>
-                <button className="btn-start" type="button" onClick={() => setPlay(true)}>Play</button>
-            </footer>
+               
         </div>
         </div>
     );
