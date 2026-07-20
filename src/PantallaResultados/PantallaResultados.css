@@ -2,10 +2,19 @@
   background-image: url(../../public/Gemini_Generated_Image_ejt0g3ejt0g3ejt0.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center 65%;
+  background-position: center;
+
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 24px;
 }
 
-.results-card {
+
+/* .results-card {
   background: var(--bg-card);
   border-radius: 24px;
   padding: 40px;
@@ -14,6 +23,27 @@
   text-align: center;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
   animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+} */
+
+
+.results-card {
+  background: var(--bg-card);
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 650px;
+  width: 90%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+  animation: popIn .4s cubic-bezier(.175, .885, .32, 1.275);
+}
+
+.results-header {
+  text-align: center;
+}
+
+
+.results-actions {
+  display: flex;
+  justify-content: center;
 }
 
 .medal-icon {
@@ -27,6 +57,7 @@
   color: var(--primary-color);
   font-weight: 600;
   margin-top: 4px;
+  text-align: center;
 }
 
 .feedback-message {
@@ -36,6 +67,7 @@
   padding: 16px;
   border-radius: 12px;
   margin: 24px 0;
+  text-align: center;
 }
 
 .stats-grid {
