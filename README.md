@@ -24,6 +24,10 @@ Antes de iniciar, el jugador ingresa su nombre. Al terminar el tiempo, se muestr
 ![alt text](image-2.png)
 ![alt text](image-3.png)
 
+## Link de GithubPages
+https://24saravaldez-tech.github.io/Juego-Explota-el-Globo/
+
+
 ## Instrucciones para ejecutar el proyecto
 
 ```bash

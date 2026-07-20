@@ -35,8 +35,6 @@ body {
     overflow: hidden;
 }
 
-/* Wrapper de fondo a pantalla completa (evita que los estilos de body
-   de cada pantalla se pisen entre sí). */
 .pantalla-fondo {
     position: relative;
     width: 100vw;

@@ -11,7 +11,6 @@
   --balloon-blue: #4d96ff;
   --balloon-black: #2d3748;
 
-  /* Paleta extraída de la ilustración floral */
   --coral: #e8735f;
   --coral-hover: #d85a48;
   --rose: #f4a6a0;
@@ -37,8 +36,6 @@ body {
   overflow: hidden;
 }
 
-/* Wrapper de fondo a pantalla completa (evita que los estilos de body
-   de cada pantalla se pisen entre sí). */
 .pantalla-fondo {
   position: relative;
   width: 100vw;
