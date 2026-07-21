@@ -3,6 +3,7 @@
   animation: floatUp 6s linear forwards;
   user-select: none;
   cursor: pointer;
+  height: 0;
 
 }
 

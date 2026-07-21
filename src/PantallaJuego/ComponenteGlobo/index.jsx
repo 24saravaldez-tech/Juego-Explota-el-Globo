@@ -7,7 +7,6 @@ function Globo({ id, color, x, y, velocidad, onExplotar, onLlegoAlTecho, points 
 
   const estiloDinamico = {
     left: `${x}%`,
-    right: `${y}%`,
     animationDuration: `${velocidad}s`
   };
 
@@ -17,8 +16,9 @@ function Globo({ id, color, x, y, velocidad, onExplotar, onLlegoAlTecho, points 
       style={estiloDinamico}
       onAnimationEnd={() => onLlegoAlTecho(id)}
       id={`${points}`}
+      onClick={() => onExplotar(id, color, points)}
     >
-      <div className="balloon-body" onClick={() => onExplotar(id, color, points)}>
+      <div className="balloon-body" >
         <div className="balloon-reflect"></div>
       </div>
       <div className="balloon-tie"></div>
