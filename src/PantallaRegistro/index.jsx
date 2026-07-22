@@ -38,7 +38,25 @@ function PantallaRegistro({ saliendo = false }) {
                                 <span className="balloon-dot black"></span>
                                 <span className="points-label">Negro: <strong>-3</strong></span>
                             </div>
+                            <div className="points-item">
+                                <span className="balloon-dot yellow"></span>
+                                <span className="points-label">Amarillo: <strong>0</strong></span>
+                            </div>
+                            <div className="points-item">
+                                <span className="balloon-dot white"></span>
+                                <span className="points-label">Blanco: <strong>0</strong></span>
+                            </div>
+                            <div className="points-item">
+                                <span className="balloon-dot pink"></span>
+                                <span className="points-label">Rosa: <strong>0</strong></span>
+                            </div>
+                            <div className="points-item">
+                                <span className="balloon-dot orange"></span>
+                                <span className="points-label">Naranja: <strong>0</strong></span>
+                            </div>
                         </div>
+
+                        <p className="rules-text-secondary">Los globos amarillo, blanco, rosa y naranja no suman ni restan puntos, ¡pero igual dan diversión extra!</p>
                     </div>
                 </div>
             </div>

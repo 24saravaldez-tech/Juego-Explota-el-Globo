@@ -7,10 +7,15 @@
   --text-muted: #8a5b63;
 
   --balloon-red: #ff6b6b;
-  --balloon-green: #4ead73;
-  --balloon-blue: #4d96ff;
+  --balloon-green: #a3e635;
+  --balloon-blue: #38bdf8;
   --balloon-black: #2d3748;
+  --balloon-yellow: #fde047;
+  --balloon-white: #ffffff;
+  --balloon-pink: #f472b6;
+  --balloon-orange: #fb923c;
 
+  /* Paleta extraída de la ilustración floral */
   --coral: #e8735f;
   --coral-hover: #d85a48;
   --rose: #f4a6a0;
@@ -36,6 +41,7 @@ body {
   overflow: hidden;
 }
 
+
 .pantalla-fondo {
   position: relative;
   width: 100vw;
@@ -47,7 +53,7 @@ body {
 }
 
 .pantalla-fondo--registro {
-  background-image: url(../../public/Gemini_Generated_Image_1aj5ty1aj5ty1aj5.png);
+  background-image: url(../../public/bg_registro.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -57,7 +63,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background-image: url(../../public/Gemini_Generated_Image_bd9dm0bd9dm0bd9d.png);
+  background-image: url(../../public/bg_registro.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center 100%;
@@ -86,6 +92,7 @@ body {
   box-shadow: 0 20px 45px rgba(107, 63, 78, 0.25);
   animation: fadeIn 0.6s ease;
 }
+
 
 .start-card--saliendo {
   animation: desvanecerTarjeta 0.8s ease forwards;
@@ -284,6 +291,31 @@ body {
 
 .balloon-dot.black {
   background-color: var(--balloon-black);
+}
+
+.balloon-dot.yellow {
+  background-color: var(--balloon-yellow);
+}
+
+.balloon-dot.white {
+  background-color: var(--balloon-white);
+  border: 1px solid rgba(107, 63, 78, 0.25);
+}
+
+.balloon-dot.pink {
+  background-color: var(--balloon-pink);
+}
+
+.balloon-dot.orange {
+  background-color: var(--balloon-orange);
+}
+
+.rules-text-secondary {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 16px;
+  line-height: 1.5;
+  font-style: italic;
 }
 
 @keyframes fadeIn {

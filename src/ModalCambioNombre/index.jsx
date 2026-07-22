@@ -4,18 +4,18 @@ import { JuegoContext } from "../JuegoContext";
 
 function ModalCambioNombre() {
 
-    const { nombreJugador, onChange, Jugar, Reiniciar } = React.useContext(JuegoContext)
+    const { nombreJugador, setNombreJugador, onChange, Jugar, Reiniciar } = React.useContext(JuegoContext)
 
 
     return (
         <div className="modal-overlay">
             <div className="modal-container">
 
-                <button className="modal-close-btn" aria-label="Cerrar">&times;</button>
+                <button className="modal-close-btn" aria-label="Cerrar" onClick={Reiniciar}>x</button>
 
                 <div className="modal-header">
                     <h2>Editar Perfil</h2>
-                    <p>Si deseas cambiar tu nombre de jugador antes de volver a jugar, este es el momneto. De lo contrario, pudes mantener el actual</p>
+                    <p>¿Quieres jugar con otro nombre? Escríbelo abajo antes de volver a jugar. Si prefieres seguir igual, deja tu nombre actual y listo.</p>
                 </div>
 
                 <div className="modal-body">

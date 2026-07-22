@@ -7,11 +7,16 @@ function Temporizador() {
     const { setCambioPantalla, setTempBallons, generadorBallons } = React.useContext(JuegoContext)
 
     useEffect(() => {
-            const metronomo = setInterval(() => {
-                setTiempo((antes) => antes > 0 ? antes - 1 : antes)
-                setTempBallons((anteriores) => [...anteriores, generadorBallons()])
-            }, 1000)
-            return () => clearInterval(metronomo)
+
+        const metronomo = setInterval(() => {
+            setTiempo((antes) => antes > 0 ? antes - 1 : antes)
+        }, 1000)
+
+
+        const temporizadorGlobos = setInterval(() => {
+            setTempBallons((anteriores) => [...anteriores, generadorBallons()])
+        }, 500)
+        return () => {clearInterval(metronomo); clearInterval(temporizadorGlobos)}
     }, [])
 
     useEffect(() => {

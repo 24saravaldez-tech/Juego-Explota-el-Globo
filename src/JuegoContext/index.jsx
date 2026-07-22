@@ -18,6 +18,10 @@ function JuegoProvider({ children }) {
         { color: 'blue', points: 5, },
         { color: 'green', points: 2, },
         { color: 'black', points: -3, },
+        { color: 'white', points: 0, },
+        { color: 'pink', points: 0, },
+        { color: 'orange', points: 0, },
+        { color: 'yellow', points: 0, }
     ]
 
     const contadorId = React.useRef(0)
@@ -38,7 +42,7 @@ function JuegoProvider({ children }) {
 
 
     const generadorBallons = () => {
-        let index = Math.floor(Math.random() * (4 - 0) + 0);
+        let index = Math.floor(Math.random() * (8 - 0) + 0);
         let colorEscogido = coloresValidos[index];
 
         let globito = {
@@ -104,6 +108,7 @@ function JuegoProvider({ children }) {
             setTotal(0)
             setNegros(0)
             setTotalPositivos(0)
+            setTotalNulos(0)
             setTempBallons(globosPorDefecto)
             setCambioPantalla('Jugar')
         }
@@ -131,6 +136,7 @@ function JuegoProvider({ children }) {
             setPuntos,
             negros,
             total,
+            totalNulos,
             totalPositivos,
             tempBalloons,
             setTempBallons,

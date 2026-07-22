@@ -6,9 +6,13 @@
     --text-main: #4a2c35;
     --text-muted: #8a5b63;
     --balloon-red: #ff6b6b;
-    --balloon-green: #4ead73;
-    --balloon-blue: #4d96ff;
+    --balloon-green: #a3e635;
+    --balloon-blue: #38bdf8;
     --balloon-black: #2d3748;
+    --balloon-yellow: #fde047;
+    --balloon-white: #ffffff;
+    --balloon-pink: #f472b6;
+    --balloon-orange: #fb923c;
 
     --coral: #e8735f;
     --coral-hover: #d85a48;
@@ -46,7 +50,7 @@ body {
 }
 
 .pantalla-fondo--juego {
-    background-image: url(../../public/Gemini_Generated_Image_bd9dm0bd9dm0bd9d.png);
+    background-image: url(../../public/bg_juego.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 65%;
